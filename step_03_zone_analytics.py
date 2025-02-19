@@ -1,0 +1,17 @@
+from pyspark.sql import SparkSession
+from pyspark.sql import functions as F
+from pyspark.sql import types as T
+
+spark = SparkSession.builder \
+    .appName("ZoneAnalytics") \
+    .master("local[*]") \
+    .getOrCreate()
+
+df_curated = spark.read \
+    .parquet("data/curated/microsoft_repos")
+
+
+df_curated.show()
+df_curated.printSchema()
+
+spark.stop()
