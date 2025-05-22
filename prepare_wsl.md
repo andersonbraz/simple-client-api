@@ -76,7 +76,6 @@ tar -xvf openjdk-21.0.2_linux-x64_bin.tar.gz && rm -Rf openjdk-21.0.2_linux-x64_
 
 ```shell
 # JAVA
-
 export JAVA_HOME=~/java/jdk-21.0.2
 export PATH=$PATH:$JAVA_HOME/bin
 ```
