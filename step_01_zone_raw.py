@@ -19,9 +19,13 @@ def get_my_repos():
 def get_repos(organizations):
 
     all_repos = []
+
     for organization in organizations:
+
         page = 1
+
         while True:
+
             response = requests.get(
                 f"{GITHUB_API_URL}/orgs/{organization}/repos",
                 headers=get_auth_header(),
@@ -47,8 +51,6 @@ organizations = ["microsoft","aws","oracle","ibm","apache"]
 
 data_raw = get_repos(organizations) # return json
 
-df_microsft = pd.DataFrame.from_dict(data_raw)
-
-df_microsft = df_microsft[["id", "full_name", "name", "language","created_at", "updated_at", "size", "stargazers_count", "watchers_count", "forks_count", "open_issues_count", "archived", "disabled", "visibility"]]
-
-df_microsft.to_csv("data/raw/repos.csv", index=False)
+df_repos = pd.DataFrame.from_dict(data_raw)
+df_repos = df_repos[["id", "full_name", "name", "language","created_at", "updated_at", "size", "stargazers_count", "watchers_count", "forks_count", "open_issues_count", "archived", "disabled", "visibility"]]
+df_repos.to_csv("data/raw/repos.csv", index=False)
