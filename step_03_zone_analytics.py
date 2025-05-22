@@ -10,12 +10,14 @@ spark = SparkSession.builder \
 df_curated = spark.read \
     .parquet("data/curated/microsoft_repos")
 
-df_curated = df_curated.select(
+df_analytics = df_curated.select(
     "*",
     F.current_date().alias("processed_at")
 )
 
-df_curated.show()
-df_curated.printSchema()
+df_analytics.show()
+df_analytics.printSchema()
+
+df_analytics.write.mode("overwrite").parquet("data/analytics/microsoft_repos")
 
 spark.stop()
