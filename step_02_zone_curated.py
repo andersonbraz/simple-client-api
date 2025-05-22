@@ -31,7 +31,8 @@ df_curated = df_raw.select(
     F.col("open_issues_count").cast(T.IntegerType()),
     F.col("archived").cast(T.BooleanType()),
     F.col("disabled").cast(T.BooleanType()),
-    F.col("visibility").cast(T.StringType())
+    F.col("visibility").cast(T.StringType()),
+    F.current_date().alias("processed_at"),
 )
 
 df_curated.show(truncate=False)

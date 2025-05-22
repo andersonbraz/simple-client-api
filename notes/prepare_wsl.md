@@ -52,6 +52,12 @@ python --version
 python -m pip install --upgrade pip
 ```
 
+## Instalar ferramentas necessárias
+
+```shell
+sudo apt install wget curl
+```
+
 ## Verificar a instalação do PIP
 
 ```shell
