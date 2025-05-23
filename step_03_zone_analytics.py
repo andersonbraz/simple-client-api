@@ -10,8 +10,7 @@ spark = SparkSession.builder \
     .master("local[*]") \
     .getOrCreate()
 
-df_curated = spark.read \
-    .parquet("data/curated/repos.parquet")
+df_curated = spark.read.parquet("data/curated/repos.parquet")
 
 df_analytics = df_curated.select(
     "*"
@@ -20,11 +19,9 @@ df_analytics = df_curated.select(
 df_analytics.show()
 df_analytics.printSchema()
 
-df_analytics.write.mode("overwrite").parquet("data/analytics/repos")
+total_rows = df_analytics.count()
+print("Total of", f"{format(total_rows, ',').replace(',', '.')} rows.")
 
-
-df_final = pd.read_parquet("data/analytics/repos")
-conn = sqlite3.connect("github.db")
-df_final.to_sql("repos", conn, if_exists="replace", index=False)
+df_analytics.write.mode("append").parquet("data/analytics/repos.parquet")
 
 spark.stop()

@@ -3,7 +3,8 @@ import os
 import pandas as pd
 import logging
 
-LOG_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "application.log")
+LOG_DATE = pd.Timestamp.now().strftime("%Y-%m-%d")
+LOG_FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), f"logs/application_{LOG_DATE}.log")
 
 # Configuração do logging
 logging.basicConfig(

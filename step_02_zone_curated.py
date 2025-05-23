@@ -41,6 +41,6 @@ df_curated.printSchema()
 total_rows = df_curated.count()
 print("Total of", f"{format(total_rows, ',').replace(',', '.')} rows.")
 
-df_curated.write.mode("overwrite").parquet("data/curated/repos.parquet")
+df_curated.write.mode("append").parquet("data/curated/repos.parquet")
 
 spark.stop()
