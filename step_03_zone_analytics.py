@@ -24,4 +24,11 @@ print("Total of", f"{format(total_rows, ',').replace(',', '.')} rows.")
 
 df_analytics.write.mode("append").parquet("data/analytics/repos.parquet")
 
+df_final = pd.read_parquet("data/analytics/repos.parquet")
+conn = sqlite3.connect("github.db")
+df_final.to_sql("repos", conn, if_exists="replace", index=False)
+
+conn.commit()
+conn.close()
+# Close the Spark session
 spark.stop()
