@@ -7,7 +7,7 @@ idna==3.10
 numpy==2.2.3
 packaging==25.0
 pandas==2.2.3
-py4j==0.10.9.9
+py4j==0.10.9.7
 pyarrow==20.0.0
 python-dateutil==2.9.0.post0
 pytz==2025.1

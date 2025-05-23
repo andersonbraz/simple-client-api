@@ -37,7 +37,7 @@ sudo apt update && sudo apt full-upgrade
 ## Instalar o Python 3
 
 ```shell
-sudo apt-get install python-is-python3
+sudo apt-get install python-is-python3 
 ```
 
 ## Verificar a instalação do Python 3
@@ -49,19 +49,20 @@ python --version
 ## Instalar o PIP
 
 ```shell
+sudo apt install python3.11-venv
 python -m pip install --upgrade pip
-```
-
-## Instalar ferramentas necessárias
-
-```shell
-sudo apt install wget curl
 ```
 
 ## Verificar a instalação do PIP
 
 ```shell
 pip --version
+```
+
+## Instalar ferramentas necessárias
+
+```shell
+sudo apt install wget curl git unzip
 ```
 
 ## Baixar Java JDK 
