@@ -49,7 +49,7 @@ python --version
 ## Instalar o PIP
 
 ```shell
-sudo apt install python3.11-venv
+sudo apt install python3-pip
 python -m pip install --upgrade pip
 ```
 
@@ -57,6 +57,12 @@ python -m pip install --upgrade pip
 
 ```shell
 pip --version
+```
+
+## Instalar o VENV para o Python
+ 
+```shell
+sudo apt install python3.11-venv
 ```
 
 ## Instalar ferramentas necessárias

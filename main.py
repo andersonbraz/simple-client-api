@@ -24,13 +24,28 @@ logging.basicConfig(
 
 start_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
 
-stage_raw = JobStageRaw(job_stage_id="1", job_stage_name="Data Ingestion", logging=logging)
+stage_raw = JobStageRaw(
+    job_stage_id="1", 
+    job_stage_name="Data Ingestion", 
+    logging=logging
+)
+
 stage_raw.run()
 
-stage_curated = JobStageCurated(job_stage_id="2", job_stage_name="Data Cleaning", logging=logging)
+stage_curated = JobStageCurated(
+    job_stage_id="2", 
+    job_stage_name="Data Cleaning", 
+    logging=logging
+)
+
 stage_curated.run()
 
-stage_analytics = JobStageAnalytics(job_stage_id="3", job_stage_name="Data Analysis", logging=logging)
+stage_analytics = JobStageAnalytics(
+    job_stage_id="3", 
+    job_stage_name="Data Analysis", 
+    logging=logging
+)
+
 stage_analytics.run()
 
 end_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
