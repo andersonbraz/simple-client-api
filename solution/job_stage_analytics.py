@@ -9,4 +9,4 @@ class JobStageAnalytics:
         self.logging = logging
 
     def run(self):
-        logging.info(f"Running job stage: {self.job_stage_name}")
+        logging.info(f"Running job stage: {self.job_stage_id} - {self.job_stage_name}")
